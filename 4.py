@@ -1,18 +1,18 @@
 #4.1
 nat = "ip nat inside source list ACL interface FastEthernet0/1 overload"
 res = nat.replace("Fast", "Gigabit")
-print(res)
+print(res, "4.1")
 
 #4.2
 mac = "AAAA:BBBB:CCCC"
 res = mac.replace(":", ".")
-print(res)
+print(res, "4.2")
 
 #4.3
 config = "switchport trunk allowed vlan 1,3,10,20,30,100"
 result = config.replace("switchport trunk allowed vlan ", "")
 result = result.split(",")
-print(result, type(result))
+print(result, type(result), "4.3")
 
 #4.4
 vlans = [10, 20, 30, 1, 2, 100, 10, 30, 3, 4, 10]
@@ -21,7 +21,7 @@ for i in vlans:
     if i not in result:
         result.append(i)
 result.sort()
-print(result)
+print(result, "4.4")
 
 #4.5
 result = []
@@ -32,4 +32,23 @@ command2 = command2.replace("switchport trunk allowed vlan ","").split(",")
 for i in command1:
     if i in command2:
         result.append(i)
-print(result)
+print(result, "4.5")
+
+#4.6
+#Подумать как сделать вывод более красивый
+ospf_route = "       10.0.24.0/24 [110/41] via 10.0.13.3, 3d18h, FastEthernet0/0"
+result = ospf_route.replace("       ", "")
+res = result.split(" ")
+res_final = f'Prefix\t{res[0]:20}\nAD/Metric\t{res[1]:10}\nNext-Hop\t{res[3].replace(",","")}\nLast update\t{res[4].replace(",","")}\nOutbound Interface\t{res[5]:20}'
+print(res_final, "4.6")
+
+#4.7
+
+mac = "AAAA:BBBB:CCCC"
+
+
+
+#4.8
+
+
+

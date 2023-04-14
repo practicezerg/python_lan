@@ -35,20 +35,31 @@ for i in command1:
 print(result, "4.5")
 
 #4.6
-#Подумать как сделать вывод более красивый
+l = ["Prefix", "AD/Metric", "Next-Hop", "Last update", "Outbound Interface"]
 ospf_route = "       10.0.24.0/24 [110/41] via 10.0.13.3, 3d18h, FastEthernet0/0"
 result = ospf_route.replace("       ", "")
 res = result.split(" ")
-res_final = f'Prefix\t{res[0]:20}\nAD/Metric\t{res[1]:10}\nNext-Hop\t{res[3].replace(",","")}\nLast update\t{res[4].replace(",","")}\nOutbound Interface\t{res[5]:20}'
-print(res_final, "4.6")
+res_final = f'{l[0]:20}\t{res[0]:20}\n{l[1]:20}\t{res[1].strip("[]"):10}\n{l[2]:20}\t{res[3].replace(",","")}\n{l[3]:20}\t{res[4].replace(",","")}\n{l[4]:20}\t{res[5]:20}'
+print(res_final, "\n4.6")
 
 #4.7
 
 mac = "AAAA:BBBB:CCCC"
-
-
+res = ""
+for i in mac:
+    step1 = ord(i)
+    step2 = format(step1, "08b")
+    res = res + step2
+print(res)
 
 #4.8
-
-
+ip = "192.168.3.1"
+ip_split = ip.split(".")
+teamplate = """
+IP address:
+{0:10}  {1:10}  {2:10}  {3:10}
+{0:010b}  {1:010b}  {2:010b}  {3:010b}
+"""
+print(type(ip_split[0]))
+print(teamplate.format(int(ip_split[0]), int(ip_split[1]), int(ip_split[2]), int(ip_split[3])))
 

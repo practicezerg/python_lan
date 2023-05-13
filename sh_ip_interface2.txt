@@ -1,0 +1,19 @@
+Ethernet0/0 is up, line protocol is up
+  Internet address is 192.168.100.1/24
+  Broadcast address is 255.255.255.255
+  Address determined by non-volatile memory
+  MTU is 1500 bytes
+  Helper address is not set
+Ethernet0/1 is up, line protocol is up
+  Internet protocol processing disabled
+Ethernet0/2 is administratively down, line protocol is down
+  Internet protocol processing disabled
+Ethernet0/3 is administratively down, line protocol is down
+  Internet protocol processing disabled
+Ethernet0/4 is up, line protocol is up
+  Internet address is 192.168.120.1/24
+  Broadcast address is 255.255.255.255
+  Address determined by non-volatile memory
+  MTU is 1480 bytes
+  Helper address is not set
+  ...

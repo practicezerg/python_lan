@@ -184,4 +184,28 @@ print("Задание 7.3b")
 Запросить у пользователя ввод номера VLAN.
 Выводить информацию только по указанному VLAN.
 """
+need_vlan = input("Введите vlan = ")
+
+res = []
+with open("CAM_table.txt", "r") as f:
+    for line in f:
+        if "DYNAMIC" in line:
+            new_line = line.split()
+            vlan = new_line[0]
+            mac = new_line[1]
+            port = new_line[3]
+            res.append([int(vlan), port, mac])  # можно через лист - проще сортировать
+            slov[port] = [vlan, mac]           # можно через словарь
+# res.sort()
+# for i in res:
+#     print(f'{str(i[0]):10}{i[2]:20}{i[1]:20}')
+def for_sort(s):
+    # print(s[1][0])
+    return int(s[1][0])
+
+zz = sorted(slov.items(), key=for_sort)
+for i in zz:
+    if i[1][0] in need_vlan:
+        print(f'{(i[1][0]):10}{i[1][1]:20}{i[0]:20}')
+
 print("=" * 100)
